@@ -22,7 +22,7 @@ This project simulates the daily operations of a beauty salon with staff managem
 - Specialization-based filtering for appointment booking
 ### 📅 Appointment Scheduling
 - **Conflict detection**: Prevents double-booking employees or clients at same time
-- **Time validation**: Respects working hours (10:00–20:00 weekdays, 10:00–18:00 Saturdays)
+- **Time validation**: Respects working hours (10:00-20:00 weekdays, 10:00-18:00 Saturdays)
 - **Workload limits**: Per-employee daily maximum based on specialization
 - Status lifecycle: Scheduled → Completed / Cancelled
 - Sunday closure enforcement
@@ -54,20 +54,20 @@ This project simulates the daily operations of a beauty salon with staff managem
 | **Exceptions** | `*.h` files in `exceptions/` | Typed exception hierarchy |
 ## 🗄️ Database Schema
 ### Main Tables
-- **salon_state** — Current date, cash balance, revenue/expenses totals
-- **employees** — Staff records with salary configuration
-- **employee_types** — Specialization-specific parameters (max clients, service time)
-- **clients** — Customer profiles with loyalty data
-- **services** — Service catalog with pricing
-- **appointments** — Booking records with status tracking
-- **salary_log** — Monthly salary payment history
+- **salon_state** - Current date, cash balance, revenue/expenses totals
+- **employees** - Staff records with salary configuration
+- **employee_types** - Specialization-specific parameters (max clients, service time)
+- **clients** - Customer profiles with loyalty data
+- **services** - Service catalog with pricing
+- **appointments** - Booking records with status tracking
+- **salary_log** - Monthly salary payment history
 ### Save Tables
 Mirror tables prefixed with `save_` for full state preservation across sessions.
 ## 🎯 Key Design Patterns
 | Pattern | Implementation |
 |---------|---------------|
-| **Singleton** | `DatabaseManager` — single database connection instance |
-| **Factory Method** | `EmployeeFactory` — creates correct subclass from type string |
+| **Singleton** | `DatabaseManager` - single database connection instance |
+| **Factory Method** | `EmployeeFactory` - creates correct subclass from type string |
 | **Polymorphism** | `Employee` base with virtual `getMaxClientsPerDay()`, `getAvgServiceTime()`, `getType()` |
 | **RAII** | `unique_ptr` in `BeautySalonSimulator` for model collections |
 | **Transaction Script** | `processDayEnd()` processes all daily appointments in a DB transaction |
